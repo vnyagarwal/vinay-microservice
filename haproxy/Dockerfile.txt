@@ -1,0 +1,6 @@
+   FROM centos
+   RUN yum -y update && yum install -y haproxy && yum clean all
+   Add ./etc/haproxy.conf /etc/haproxy.conf
+   EXPOSE 80
+   EXPOSE 1936
+   CMD ["haproxy" , "-f" , "/etc/haproxy.conf"]

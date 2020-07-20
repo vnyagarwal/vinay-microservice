@@ -1,0 +1,17 @@
+   FROM centos
+   MAINTAINER vinay
+   #COMMENT { "description": "mongodb service container",
+   # "usage": "docker run -d -p 27017:27017 --name mongodb --volume=/mydbdatadir:/var/lib/mongodb" }
+   ADD ./mongodb-org.repo /etc/yum.repos.d/
+   RUN adduser mongodb
+   RUN  yum -y update && yum install -y mongodb-org && yum clean all
+   RUN  mkdir -p /var/lib/mongodb
+   RUN  touch /var/lib/mongodb/.keep
+   RUN  chown -R mongodb:mongodb /var/lib/mongodb
+   ADD  mongodb.conf /etc/mongodb.conf
+   VOLUME [ "/var/lib/mongodb" ]
+  EXPOSE 27018
+  USER mongodb
+  WORKDIR /var/lib/mongodb
+  ENTRYPOINT ["/usr/bin/mongod", "--config", "/etc/mongodb.conf"]
+  CMD ["--quiet"]

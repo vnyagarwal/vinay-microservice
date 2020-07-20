@@ -1,0 +1,4 @@
+  FROM centos
+  RUN yum -y update && yum install -y haproxy && yum clean all
+  CMD ["/usr/sbin/haproxy" , "-version"]
+  

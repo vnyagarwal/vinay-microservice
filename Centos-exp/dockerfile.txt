@@ -1,0 +1,11 @@
+  1 FROM centos
+  2 
+  3 RUN yum -y update && yum clean all
+  4 RUN yum -y install vim
+  5 RUN yum -y install httpd
+  6 RUN yum -y install python3
+  7 RUN mkdir /tmp/test
+  8 COPY test.py /tmp/test/
+  9 WORKDIR /tmp/test/
+ 10 CMD ["python3" ,"test.py"]
+ 11 

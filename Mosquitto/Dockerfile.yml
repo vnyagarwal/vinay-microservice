@@ -1,0 +1,4 @@
+FROM toke/mosquitto
+VOLUME ["/mqtt/config" , "/mqtt/data" ,"/mqtt/log"]
+#CMD ["/usr/sbin/mosquitto" , "-v"]
+CMD ["/usr/sbin/mosquitto" , "-c" , "/mqtt/config/mosquitto.conf"]
