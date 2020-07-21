@@ -26,11 +26,22 @@ services:
       networks:
         - pintest
   httpd:
-      build: ./Apache-httpd
+      build: ./apache
       networks:
         - pintest
   tomcat: 
-      build: ./tomcat-webserver
+      build: ./tomcat
+  centos:
+    build: ./Centos-exp
+  Memcached:
+    build: ./Memcached 
+  db:
+    build: ./mongo-db
+  opendjdk:
+    build: ./Openjdk-example 
+  Mosquitto: 
+    build: ./Mosquitto 
+                
 
           
          

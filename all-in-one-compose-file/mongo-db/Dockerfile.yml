@@ -10,8 +10,8 @@
    RUN  chown -R mongodb:mongodb /var/lib/mongodb
    ADD  mongodb.conf /etc/mongodb.conf
    VOLUME [ "/var/lib/mongodb" ]
-  EXPOSE 27018
-  USER mongodb
-  WORKDIR /var/lib/mongodb
-  ENTRYPOINT ["/usr/bin/mongod", "--config", "/etc/mongodb.conf"]
-  CMD ["--quiet"]
+   EXPOSE 27018
+   USER mongodb
+   WORKDIR /var/lib/mongodb
+   ENTRYPOINT ["/usr/bin/mongod", "--config", "/etc/mongodb.conf"]
+   CMD ["--quiet"]
